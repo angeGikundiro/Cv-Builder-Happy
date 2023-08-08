@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import PersonalInfo from "../components/personalInfo";
 import Education from "../components/education";
 import Experience from "../components/experience";
-import Viewcv from "./viewcv";
+import { useNavigate } from "react-router-dom";
 
 function Makecv() {
+  const navigate = useNavigate();
   const [page, setPage] = useState(0);
 
   const FormTitles = [
@@ -49,12 +50,16 @@ function Makecv() {
     let listOfItem = [];
 
     if (item) {
-      listOfItem = JSON.parse(item);
+      localStorage.clear();
     }
+
     listOfItem.push(data);
+    if (listOfItem.length == 0) {
+      alert("Fill all the input boxes.");
+      return;
+    }
 
     localStorage.setItem("details", JSON.stringify(listOfItem));
-    console.log(localStorage);
 
     setData({
       fullName: "",
@@ -70,7 +75,7 @@ function Makecv() {
         { position: "", company: "", start: "", end: "", jobdescri: "" },
       ],
     });
-    console.log(data);
+    navigate("/view");
   };
 
   const pageDisplay = () => {
@@ -113,8 +118,6 @@ function Makecv() {
               onClick={(e) => {
                 if (page == FormTitles.length - 1) {
                   handleSubmit(e);
-                  alert("Wowwwww");
-                  // return <Viewcv data={data} />;
                 } else {
                   setPage((currPage) => currPage + 1);
                 }
