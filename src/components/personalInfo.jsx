@@ -1,6 +1,6 @@
 import React from "react";
 
-function PersonalInfo({ data, setData }) {
+function PersonalInfo({ data, setData, errors, handleChange }) {
   return (
     <div>
       <div>
@@ -10,10 +10,13 @@ function PersonalInfo({ data, setData }) {
             className="mt-3 pl-4 w-full p-2 bg-gray-100 rounded-md focus:outline-none"
             type="text"
             value={data.fullName}
-            name="teamName"
-            onChange={(e) => setData({ ...data, fullName: e.target.value })}
+            name="fullName"
+            onChange={(e) => handleChange(e)}
             required
           />
+          <span className="text-red-300">
+            {errors?.fullName ? errors?.fullName : ""}
+          </span>
         </div>
         <div className="mt-7">
           <p className="font-semibold text-gray-400">Email</p>
@@ -22,9 +25,12 @@ function PersonalInfo({ data, setData }) {
             type="text"
             value={data.email}
             name="email"
-            onChange={(e) => setData({ ...data, email: e.target.value })}
+            onChange={(e) => handleChange(e)}
             required
           />
+          <span className="text-red-300">
+            {errors?.email ? errors?.email : ""}
+          </span>
         </div>
         <div className="mt-7">
           <p className="font-semibold text-gray-400">Phone Number</p>
@@ -33,9 +39,12 @@ function PersonalInfo({ data, setData }) {
             type="text"
             value={data.phoneNumber}
             name="phoneNumber"
-            onChange={(e) => setData({ ...data, phoneNumber: e.target.value })}
+            onChange={(e) => handleChange(e)}
             required
           />
+          <span className="text-red-300">
+            {errors?.phoneNumber ? errors?.phoneNumber : ""}
+          </span>
         </div>
         <div className="mt-7">
           <p className="font-semibold text-gray-400">LinkedIn url</p>
@@ -44,9 +53,25 @@ function PersonalInfo({ data, setData }) {
             type="text"
             value={data.linkedin}
             name="linkedin"
-            onChange={(e) => setData({ ...data, linkedin: e.target.value })}
+            onChange={(e) => handleChange(e)}
             required
           />
+          <span className="text-red-300">
+            {errors?.linkedin ? errors?.linkedin : ""}
+          </span>
+        </div>
+        <div className="mt-7">
+          <p className="font-semibold text-gray-400">Professional Summary</p>
+          <textarea
+            className="mt-3 pl-4 w-full h-40 p-2 bg-gray-100 rounded-md focus:outline-none"
+            name="profession"
+            value={data.profession}
+            onChange={(e) => handleChange(e)}
+            required
+          />
+          <span className="text-red-300">
+            {errors?.profession ? errors?.profession : ""}
+          </span>
         </div>
       </div>
     </div>

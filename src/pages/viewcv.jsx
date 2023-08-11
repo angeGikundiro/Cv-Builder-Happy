@@ -41,14 +41,7 @@ function Viewcv() {
                 PROFESSIONAL SUMMARY
               </h1>
             </div>
-            <p className="mt-5">
-              I am a software developer who is passionate about my work. I've
-              created many web applications and websites using different
-              programming languages and technologies such as React J.S., Node
-              J.S., JavaScript, next Js, and Tailwind CSS. I'm always excited to
-              learn and try out new technologies and keep up with the latest
-              trends in the industry
-            </p>
+            <p className="mt-5">{data.profession}</p>
           </div>
           <div className="space-y-5">
             <div className="flex gap-4">
@@ -70,26 +63,42 @@ function Viewcv() {
               <div className="grid grid-cols-2 font-semibold">
                 <h3>{data.experience[0].company}</h3>
                 <p className="flex justify-end">
-                  {data.experience[0].start}-{data.experience[0].end}
+                  <span className="bg-green-800 text-white p-2 rounded-md">
+                    {data.experience[0].starting}
+                  </span>
+                  <p className="mt-2 mr-2 ml-2">-</p>
+                  <span className="bg-green-800 text-white p-2 rounded-md">
+                    {data.experience[0].ending}
+                  </span>
                 </p>
               </div>
               <p>{data.experience[0].jobdescri}</p>
             </div>
-            <div className="space-y-5">
-              <div className="flex gap-3 ">
-                <TfiArrowCircleRight className="text-green-800 text-sm mt-2" />
-                <h2 className="font-bold text-xl">
-                  {data.experience[1].position}
-                </h2>
+            {!data.experience[1] ? (
+              ""
+            ) : (
+              <div className="space-y-5">
+                <div className="flex gap-3 ">
+                  <TfiArrowCircleRight className="text-green-800 text-sm mt-2" />
+                  <h2 className="font-bold text-xl">
+                    {data.experience[1].position}
+                  </h2>
+                </div>
+                <div className="grid grid-cols-2 font-semibold">
+                  <h3>{data.experience[1].company}</h3>
+                  <p className="flex justify-end">
+                    <span className="bg-green-800 text-white p-2 rounded-md">
+                      {data.experience[1].starting}
+                    </span>
+                    <p className="mt-2 mr-2 ml-2">-</p>
+                    <span className="bg-green-800 text-white p-2 rounded-md">
+                      {data.experience[1].ending}
+                    </span>
+                  </p>
+                </div>
+                <p>{data.experience[1].jobdescri}</p>
               </div>
-              <div className="grid grid-cols-2 font-semibold">
-                <h3>{data.experience[1].company}</h3>
-                <p className="flex justify-end">
-                  {data.experience[1].start}-{data.experience[1].end}
-                </p>
-              </div>
-              <p>{data.experience[1].jobdescri}</p>
-            </div>
+            )}
           </div>
           <div className="space-y-5">
             <div className="flex gap-4">
@@ -109,14 +118,22 @@ function Viewcv() {
             </div>
             <h2 className="font-semibold">{data.education[0].degree}</h2>
             <p>{data.education[0].institution}</p>
-            <div className="flex gap-3 ">
-              <TfiArrowCircleRight className="text-green-800 text-sm mt-1" />
-              <p className="font-bold">
-                {data.education[1].start}-{data.education[1].end}
-              </p>
+            <div>
+              {!data.education[1] ? (
+                ""
+              ) : (
+                <div>
+                  <div className="flex gap-3 ">
+                    <TfiArrowCircleRight className="text-green-800 text-sm mt-1" />
+                    <p className="font-bold">
+                      {data.education[1].start}-{data.education[1].end}
+                    </p>
+                  </div>
+                  <h2 className="font-semibold">{data.education[1].degree}</h2>
+                  <p>{data.education[1].institution}</p>
+                </div>
+              )}
             </div>
-            <h2 className="font-semibold">{data.education[1].degree}</h2>
-            <p>{data.education[1].institution}</p>
           </div>
         </div>
       ))}
