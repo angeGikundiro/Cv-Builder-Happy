@@ -5,7 +5,6 @@ describe("Makecv", () => {
 
   it("should render the PersonalInfo component on page 0", () => {
     cy.get("h1").contains("Personal Info");
-    cy.
   });
 
   it("should render the Experience component on page 1", () => {
