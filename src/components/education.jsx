@@ -15,6 +15,7 @@ function Education({ data, setData, handleChange, errors }) {
             <input
               className="mt-3 pl-4 w-full p-2 bg-gray-100 rounded-md focus:outline-none"
               type="text"
+              data-testid="degree"
               name="degree"
               value={data.education[0].degree}
               onChange={(e) => handleChange(e, 0)}
@@ -31,6 +32,7 @@ function Education({ data, setData, handleChange, errors }) {
             <input
               className="mt-3 pl-4 w-full p-2 bg-gray-100 rounded-md focus:outline-none"
               type="text"
+              data-testid="institution"
               name="institution"
               value={data.education[0].institution}
               onChange={(e) => handleChange(e, 0)}
@@ -46,6 +48,7 @@ function Education({ data, setData, handleChange, errors }) {
             <input
               className="mt-3 pl-4 w-full p-2 bg-gray-100 rounded-md focus:outline-none"
               type="date"
+              data-testid="start"
               name="start"
               value={data.education[0].start}
               onChange={(e) => handleChange(e, 0)}
@@ -60,6 +63,7 @@ function Education({ data, setData, handleChange, errors }) {
             <input
               className="mt-3 pl-4 w-full p-2 bg-gray-100 rounded-md focus:outline-none"
               type="date"
+              data-testid="end"
               name="end"
               value={data.education[0].end}
               onChange={(e) => handleChange(e, 0)}
@@ -80,6 +84,7 @@ function Education({ data, setData, handleChange, errors }) {
           {addEducation && (
             <AiFillMinusCircle
               className="w-[50px] h-10 cursor-pointer"
+              data-testid="add-education-button"
               onClick={() => setAddEducation(false)}
             />
           )}
@@ -93,6 +98,7 @@ function Education({ data, setData, handleChange, errors }) {
               <input
                 className="mt-3 pl-4 w-full p-2 bg-gray-100 rounded-md focus:outline-none"
                 type="text"
+                data-testid="degree-1"
                 name="degree"
                 value={data.education[1].degree}
                 onChange={(e) => handleChange(e, 1)}
@@ -106,6 +112,7 @@ function Education({ data, setData, handleChange, errors }) {
               <input
                 className="mt-3 pl-4 w-full p-2 bg-gray-100 rounded-md focus:outline-none"
                 type="text"
+                data-testid="institution-1"
                 name="institution"
                 value={data.education[1].institution}
                 onChange={(e) => handleChange(e, 1)}
@@ -118,6 +125,7 @@ function Education({ data, setData, handleChange, errors }) {
               <input
                 className="mt-3 pl-4 w-full p-2 bg-gray-100 rounded-md focus:outline-none"
                 type="date"
+                data-testid="start-1"
                 name="start"
                 value={data.education[1].start}
                 onChange={(e) => handleChange(e, 1)}
@@ -129,6 +137,7 @@ function Education({ data, setData, handleChange, errors }) {
               <input
                 className="mt-3 pl-4 w-full p-2 bg-gray-100 rounded-md focus:outline-none"
                 type="date"
+                data-testid="end-1"
                 name="end"
                 value={data.education[1].end}
                 onChange={(e) => handleChange(e, 1)}

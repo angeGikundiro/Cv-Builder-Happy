@@ -224,9 +224,16 @@ function Makecv() {
   }
 
   return (
-    <div className="bg-gray-300 px-80 py-10">
+    <div
+      className="bg-gray-300 px-20 py-10 
+      md:px-40 
+      sm:px-30 
+      xl:px-80
+      lg:px-60
+    "
+    >
       {/* sm:bg-yellow-300 md:bg-green-300 lg:bg-pink-300 xl:bg-blue-300 2xl:bg-red-300 */}
-      <div className="bg-white rounded-md textalign-center font-abc px-40 py-20">
+      <div className="bg-white rounded-md textalign-center font-abc px-10 py-20 sm:px-20">
         <h1 className="font-bold text-xl text-green-800">{FormTitles[page]}</h1>
 
         <div>
