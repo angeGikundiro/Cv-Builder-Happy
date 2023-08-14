@@ -14,6 +14,7 @@ function Experience({ data, setData, handleChange, errors }) {
               <input
                 className="mt-3 pl-4 w-full p-2 bg-gray-100 rounded-md focus:outline-none"
                 type="text"
+                data-testid="position"
                 name="position"
                 value={data.experience[0].position}
                 onChange={(e) => handleChange(e, 0)}
@@ -28,6 +29,7 @@ function Experience({ data, setData, handleChange, errors }) {
               <input
                 className="mt-3 pl-4 w-full p-2 bg-gray-100 rounded-md focus:outline-none"
                 type="text"
+                data-testid="company"
                 name="company"
                 value={data.experience[0].company}
                 onChange={(e) => handleChange(e, 0)}
@@ -44,6 +46,7 @@ function Experience({ data, setData, handleChange, errors }) {
             <input
               className="mt-3 pl-4 w-full p-2 bg-gray-100 rounded-md focus:outline-none"
               type="date"
+              data-testid="starting"
               name="starting"
               value={data.experience[0].starting}
               onChange={(e) => handleChange(e, 0)}
@@ -58,6 +61,7 @@ function Experience({ data, setData, handleChange, errors }) {
             <input
               className="mt-3 pl-4 w-full p-2 bg-gray-100 rounded-md focus:outline-none"
               type="date"
+              data-testid="ending"
               name="ending"
               value={data.experience[0].ending}
               onChange={(e) => handleChange(e, 0)}
@@ -73,6 +77,7 @@ function Experience({ data, setData, handleChange, errors }) {
             <textarea
               className="mt-3 pl-4 w-full h-40 p-2 bg-gray-100 rounded-md focus:outline-none"
               name="jobdescri"
+              data-testid="description"
               value={data.experience[0].jobdescri}
               onChange={(e) => handleChange(e, 0)}
               required

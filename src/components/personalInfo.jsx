@@ -9,6 +9,7 @@ function PersonalInfo({ data, setData, errors, handleChange }) {
           <input
             className="mt-3 pl-4 w-full p-2 bg-gray-100 rounded-md focus:outline-none"
             type="text"
+            data-testid="fullname"
             value={data.fullName}
             name="fullName"
             onChange={(e) => handleChange(e)}
@@ -23,6 +24,7 @@ function PersonalInfo({ data, setData, errors, handleChange }) {
           <input
             className="mt-3 pl-4 w-full p-2 bg-gray-100 rounded-md focus:outline-none"
             type="text"
+            data-testid="email"
             value={data.email}
             name="email"
             onChange={(e) => handleChange(e)}
@@ -37,6 +39,7 @@ function PersonalInfo({ data, setData, errors, handleChange }) {
           <input
             className="mt-3 pl-4 w-full p-2 bg-gray-100 rounded-md focus:outline-none"
             type="text"
+            data-testid="phonenumber"
             value={data.phoneNumber}
             name="phoneNumber"
             onChange={(e) => handleChange(e)}
@@ -51,6 +54,7 @@ function PersonalInfo({ data, setData, errors, handleChange }) {
           <input
             className="mt-3 pl-4 w-full p-2 bg-gray-100 rounded-md focus:outline-none"
             type="text"
+            data-testid="linkedin"
             value={data.linkedin}
             name="linkedin"
             onChange={(e) => handleChange(e)}
@@ -65,6 +69,7 @@ function PersonalInfo({ data, setData, errors, handleChange }) {
           <textarea
             className="mt-3 pl-4 w-full h-40 p-2 bg-gray-100 rounded-md focus:outline-none"
             name="profession"
+            data-testid="profession"
             value={data.profession}
             onChange={(e) => handleChange(e)}
             required
