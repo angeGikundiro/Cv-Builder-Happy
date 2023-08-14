@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PersonalInfo from "../components/personalInfo";
 import Education from "../components/education";
 import Experience from "../components/experience";
 import { useNavigate } from "react-router-dom";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function Makecv() {
   const navigate = useNavigate();
   const [page, setPage] = useState(0);
+  const [errors, setErrors] = useState({});
+  const [isValid, setIsValid] = useState(false);
 
   const FormTitles = [
     "Personal Info",
@@ -19,25 +24,32 @@ function Makecv() {
     email: "",
     phoneNumber: "",
     linkedin: "",
+    profession: "",
     education: [
       { degree: "", institution: "", start: "", end: "" },
       { degree: "", institution: "", start: "", end: "" },
     ],
     experience: [
-      { position: "", company: "", start: "", end: "", jobdescri: "" },
-      { position: "", company: "", start: "", end: "", jobdescri: "" },
+      { position: "", company: "", starting: "", ending: "", jobdescri: "" },
+      { position: "", company: "", starting: "", ending: "", jobdescri: "" },
     ],
   });
 
   const handleChange = (e, index) => {
-    const name = e.target.name;
-    const value = e.target.value;
+    setErrors({ ...errors, [e.target.name]: undefined });
     const updatedEducation = [...data.education];
-    updatedEducation[index] = { ...updatedEducation[index], [name]: value };
+    updatedEducation[index] = {
+      ...updatedEducation[index],
+      [e.target.name]: e.target.value,
+    };
     const updatedExperience = [...data.experience];
-    updatedExperience[index] = { ...updatedExperience[index], [name]: value };
+    updatedExperience[index] = {
+      ...updatedExperience[index],
+      [e.target.name]: e.target.value,
+    };
     setData({
       ...data,
+      [e.target.name]: e.target.value,
       education: updatedEducation,
       experience: updatedExperience,
     });
@@ -61,36 +73,155 @@ function Makecv() {
 
     localStorage.setItem("details", JSON.stringify(listOfItem));
 
+    setErrors({});
+
     setData({
       fullName: "",
       email: "",
       phoneNumber: "",
       linkedin: "",
+      profession: "",
       education: [
         { degree: "", institution: "", start: "", end: "" },
         { degree: "", institution: "", start: "", end: "" },
       ],
       experience: [
-        { position: "", company: "", start: "", end: "", jobdescri: "" },
-        { position: "", company: "", start: "", end: "", jobdescri: "" },
+        { position: "", company: "", starting: "", ending: "", jobdescri: "" },
+        { position: "", company: "", starting: "", ending: "", jobdescri: "" },
       ],
     });
+
+    if (page === 2) {
+      const errors = {};
+      if (!data.education[0].degree) {
+        errors.degree = "Degree is required";
+      }
+      if (!data.education[0].institution) {
+        errors.institution = "Institution is required";
+      }
+      if (!data.education[0].start) {
+        errors.start = "Starting date is required";
+      }
+      if (!data.education[0].end) {
+        errors.end = "End date is required";
+      }
+
+      if (Object.keys(errors).length !== 0) {
+        setErrors(errors);
+        setIsValid(false);
+        return;
+      }
+    }
     navigate("/view");
   };
 
   const pageDisplay = () => {
     if (page === 0) {
-      return <PersonalInfo data={data} setData={setData} />;
+      return (
+        <PersonalInfo
+          data={data}
+          setData={setData}
+          errors={errors}
+          handleChange={handleChange}
+        />
+      );
     } else if (page === 1) {
       return (
-        <Experience data={data} setData={setData} handleChange={handleChange} />
+        <Experience
+          data={data}
+          setData={setData}
+          errors={errors}
+          handleChange={handleChange}
+        />
       );
     } else {
       return (
-        <Education data={data} setData={setData} handleChange={handleChange} />
+        <Education
+          data={data}
+          setData={setData}
+          errors={errors}
+          handleChange={handleChange}
+        />
       );
     }
   };
+
+  function displayNext() {
+    if (page === 0) {
+      const errors = {};
+      if (!data.fullName) {
+        errors.fullName = "Full Name is required";
+      }
+      if (!data.email) {
+        errors.email = "Email is required";
+      }
+      if (!data.phoneNumber) {
+        errors.phoneNumber = "Phone Number is required";
+      }
+      if (!data.linkedin) {
+        errors.linkedin = "LinkedIn is required";
+      }
+      if (!data.profession) {
+        errors.profession = "Professional Summary is required";
+      }
+
+      if (Object.keys(errors).length !== 0) {
+        setErrors(errors);
+        setIsValid(false);
+        return;
+      }
+    }
+
+    if (page === 1) {
+      const errors = {};
+      if (!data.experience[0].position) {
+        errors.position = "Position is required";
+      }
+      if (!data.experience[0].company) {
+        errors.company = "company is required";
+      }
+      if (!data.experience[0].starting) {
+        errors.starting = "Starting date is required";
+      }
+      if (!data.experience[0].ending) {
+        errors.ending = "End date is required";
+      }
+      if (!data.experience[0].jobdescri) {
+        errors.jobdescri = "Job description Summary is required";
+      }
+
+      if (Object.keys(errors).length !== 0) {
+        setErrors(errors);
+        setIsValid(false);
+        return;
+      }
+    }
+
+    // if (page === 2) {
+    //   const errors = {};
+    //   if (!data.education[0].degree) {
+    //     errors.degree = "Degree is required";
+    //   }
+    //   if (!data.education[0].institution) {
+    //     errors.institution = "Institution is required";
+    //   }
+    //   if (!data.education[0].start) {
+    //     errors.start = "Starting date is required";
+    //   }
+    //   if (!data.education[0].end) {
+    //     errors.end = "End date is required";
+    //   }
+
+    //   if (Object.keys(errors).length !== 0) {
+    //     setErrors(errors);
+    //     setIsValid(false);
+    //     return;
+    //   }
+    // }
+
+    setPage((currPage) => currPage + 1);
+    setIsValid(true);
+  }
 
   return (
     <div className="bg-gray-300 px-80 py-10">
@@ -119,7 +250,7 @@ function Makecv() {
                 if (page == FormTitles.length - 1) {
                   handleSubmit(e);
                 } else {
-                  setPage((currPage) => currPage + 1);
+                  displayNext();
                 }
               }}
             >
@@ -128,6 +259,7 @@ function Makecv() {
           </div>
         </div>
       </div>
+      <ToastContainer> </ToastContainer>
     </div>
   );
 }
