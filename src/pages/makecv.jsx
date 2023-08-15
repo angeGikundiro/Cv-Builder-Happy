@@ -197,27 +197,27 @@ function Makecv() {
       }
     }
 
-    // if (page === 2) {
-    //   const errors = {};
-    //   if (!data.education[0].degree) {
-    //     errors.degree = "Degree is required";
-    //   }
-    //   if (!data.education[0].institution) {
-    //     errors.institution = "Institution is required";
-    //   }
-    //   if (!data.education[0].start) {
-    //     errors.start = "Starting date is required";
-    //   }
-    //   if (!data.education[0].end) {
-    //     errors.end = "End date is required";
-    //   }
+    if (page === 2) {
+      const errors = {};
+      if (!data.education[0].degree) {
+        errors.degree = "Degree is required";
+      }
+      if (!data.education[0].institution) {
+        errors.institution = "Institution is required";
+      }
+      if (!data.education[0].start) {
+        errors.start = "Starting date is required";
+      }
+      if (!data.education[0].end) {
+        errors.end = "End date is required";
+      }
 
-    //   if (Object.keys(errors).length !== 0) {
-    //     setErrors(errors);
-    //     setIsValid(false);
-    //     return;
-    //   }
-    // }
+      if (Object.keys(errors).length !== 0) {
+        setErrors(errors);
+        setIsValid(false);
+        return;
+      }
+    }
 
     setPage((currPage) => currPage + 1);
     setIsValid(true);
