@@ -35,7 +35,7 @@ Learning project from [AmaliTech] curriculum.
  <br />
 * Git and GitHub
  <br />
-<p align="right">(<a href="#top">back to top</a>)</p>
+
 <!-- AUTHORS -->
 ## Authors
  <br />
