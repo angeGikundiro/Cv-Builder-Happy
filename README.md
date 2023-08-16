@@ -12,23 +12,31 @@
 </div>
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+ <br />
 Learning project from [AmaliTech] curriculum.
+ <br />
 ### Features
+ <br />
 * Form to fill to be able to create your CV.
+ <br />
 * Responsive design.
 ### Built With
  <br />
 #### Framework
+ <br />
 * ReactJs
+ <br />
 * Tailwind CSS
  <br />
 #### Tools
 * Visual Studio Code
+ <br />
 * Git and GitHub
  <br />
 <p align="right">(<a href="#top">back to top</a>)</p>
 <!-- AUTHORS -->
 ## Authors
+ <br />
 [Happy](https://github.com/angeGikundiro) 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
