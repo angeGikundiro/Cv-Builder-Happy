@@ -103,9 +103,9 @@ function Viewcv() {
                     {data.experience[0].position}
                   </h2>
                 </div>
-                <div className="grid grid-cols-3 font-semibold">
+                <div className="sm:grid sm:grid-cols-3 font-semibold">
                   <h3 className="col-span-1">{data.experience[0].company}</h3>
-                  <p className="flex justify-end col-span-2">
+                  <p className="flex sm:justify-end col-span-2">
                     <span className="  p-2 rounded-md">
                       {data.experience[0].starting}
                     </span>
@@ -129,11 +129,11 @@ function Viewcv() {
                         {data.experience[1].position}
                       </h2>
                     </div>
-                    <div className="grid grid-cols-3 font-semibold ">
+                    <div className="sm:grid sm:grid-cols-3 font-semibold ">
                       <h3 className="col-span-1">
                         {data.experience[1].company}
                       </h3>
-                      <p className="flex justify-end col-span-2">
+                      <p className="flex sm:justify-end col-span-2">
                         <span className="p-2 rounded-md">
                           {data.experience[1].starting}
                         </span>

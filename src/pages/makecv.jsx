@@ -227,9 +227,9 @@ function Makecv() {
 
   return (
     <div
-      className="bg-gray-300 px-20 py-10 
+      className="bg-gray-300 px-0 py-10 
       md:px-40 
-      sm:px-30 
+      sm:px-20 
       xl:px-80
       lg:px-60
     "
@@ -239,7 +239,7 @@ function Makecv() {
 
         <div>
           <div>{pageDisplay()}</div>
-          <div className="flex justify-end gap-3">
+          <div className="sm:flex sm:justify-end sm:gap-3 ">
             <button
               className=" transition-1 bg-green-800 mt-10 px-8 py-2 text-white font-semibold rounded-full 
               hover:bg-green-700"
