@@ -4,7 +4,7 @@ import Education from "../components/education";
 import Experience from "../components/experience";
 import { useNavigate } from "react-router-dom";
 
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Makecv() {
@@ -112,6 +112,8 @@ function Makecv() {
         return;
       }
     }
+
+    alert("Cv successfully made");
     navigate("/view");
   };
 
@@ -232,7 +234,6 @@ function Makecv() {
       lg:px-60
     "
     >
-      {/* sm:bg-yellow-300 md:bg-green-300 lg:bg-pink-300 xl:bg-blue-300 2xl:bg-red-300 */}
       <div className="bg-white rounded-md textalign-center font-abc px-10 py-20 sm:px-20">
         <h1 className="font-bold text-xl text-green-800">{FormTitles[page]}</h1>
 
