@@ -17,13 +17,15 @@ Learning project from [AmaliTech] curriculum.
 * Form to fill to be able to create your CV.
 * Responsive design.
 ### Built With
+ <br />
 #### Framework
 * ReactJs
 * Tailwind CSS
+ <br />
 #### Tools
 * Visual Studio Code
 * Git and GitHub
-
+ <br />
 <p align="right">(<a href="#top">back to top</a>)</p>
 <!-- AUTHORS -->
 ## Authors
