@@ -4,7 +4,7 @@ import Education from "../components/education";
 import Experience from "../components/experience";
 import { useNavigate } from "react-router-dom";
 
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Makecv() {
@@ -112,6 +112,8 @@ function Makecv() {
         return;
       }
     }
+
+    alert("Cv successfully made");
     navigate("/view");
   };
 
@@ -197,27 +199,27 @@ function Makecv() {
       }
     }
 
-    // if (page === 2) {
-    //   const errors = {};
-    //   if (!data.education[0].degree) {
-    //     errors.degree = "Degree is required";
-    //   }
-    //   if (!data.education[0].institution) {
-    //     errors.institution = "Institution is required";
-    //   }
-    //   if (!data.education[0].start) {
-    //     errors.start = "Starting date is required";
-    //   }
-    //   if (!data.education[0].end) {
-    //     errors.end = "End date is required";
-    //   }
+    if (page === 2) {
+      const errors = {};
+      if (!data.education[0].degree) {
+        errors.degree = "Degree is required";
+      }
+      if (!data.education[0].institution) {
+        errors.institution = "Institution is required";
+      }
+      if (!data.education[0].start) {
+        errors.start = "Starting date is required";
+      }
+      if (!data.education[0].end) {
+        errors.end = "End date is required";
+      }
 
-    //   if (Object.keys(errors).length !== 0) {
-    //     setErrors(errors);
-    //     setIsValid(false);
-    //     return;
-    //   }
-    // }
+      if (Object.keys(errors).length !== 0) {
+        setErrors(errors);
+        setIsValid(false);
+        return;
+      }
+    }
 
     setPage((currPage) => currPage + 1);
     setIsValid(true);
@@ -232,7 +234,6 @@ function Makecv() {
       lg:px-60
     "
     >
-      {/* sm:bg-yellow-300 md:bg-green-300 lg:bg-pink-300 xl:bg-blue-300 2xl:bg-red-300 */}
       <div className="bg-white rounded-md textalign-center font-abc px-10 py-20 sm:px-20">
         <h1 className="font-bold text-xl text-green-800">{FormTitles[page]}</h1>
 
