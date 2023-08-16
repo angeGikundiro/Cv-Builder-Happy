@@ -7,7 +7,7 @@
   <p align="center">
    Cv_Builder used to help people do their resume.
     <br />
-    <a href=" https://main--amali-cv-builder.netlify.app/"><strong>View Demo</strong></a>
+    <a href="https://main--amali-cv-builder.netlify.app/"><strong>View Demo</strong></a>
   </p>
 </div>
 <!-- ABOUT THE PROJECT -->
@@ -20,6 +20,7 @@ Learning project from [AmaliTech] curriculum.
 * Form to fill to be able to create your CV.
  <br />
 * Responsive design.
+ <br />
 ### Built With
  <br />
 #### Framework
@@ -29,6 +30,7 @@ Learning project from [AmaliTech] curriculum.
 * Tailwind CSS
  <br />
 #### Tools
+ <br />
 * Visual Studio Code
  <br />
 * Git and GitHub
